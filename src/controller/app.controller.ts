@@ -4,10 +4,10 @@ import { AppService } from '../service/app.service';
 
 @Controller()
 export class AppController {
-    constructor(private readonly appService: AppService) { }
+  constructor(private readonly appService: AppService) {}
 
-    @Get(Route.appInfo)
-    async getAppInfo(): Promise<string> {
-        return await this.appService.getAppInfo();
-    }
+  @Get(Route.appInfo)
+  async getAppInfo(): Promise<string> {
+    return await this.appService.getAppInfo();
+  }
 }

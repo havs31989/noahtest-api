@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "npm run format && npm run lint && nest start",
+    "start": "ts-node src/index.ts",
     "start:dev": "npm run lint && nest start --watch",
     "start:debug": "npm run lint && nest start --debug --watch",
     "start:prod": "node dist/main",
@@ -19,21 +19,25 @@
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
-    "migrate:create": "ts-node ./node_modules/typeorm/cli.js migration:create -d src/database/migration -n",
-    "migrate:up": "ts-node ./node_modules/typeorm/cli.js migration:run -d src/database/migration",
-    "migrate:down": "ts-node ./node_modules/typeorm/cli.js migration:revert -d src/database/migration"
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
+    "migrate:create": "typeorm migration:create -d src/database/migration -n ",
+    "migrate:generate": "typeorm migration:generate -d src/database/migration -n ",
+    "migrate:run": "typeorm migration:run",
+    "migrate:revert": "typeorm migration:revert"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",
     "@nestjs/config": "^0.6.3",
     "@nestjs/core": "^7.6.15",
     "@nestjs/platform-express": "^7.6.15",
+    "@nestjs/swagger": "^4.8.0",
     "@nestjs/typeorm": "^7.1.5",
     "pg": "^8.5.1",
-    "reflect-metadata": "^0.1.13",
+    "reflect-metadata": "^0.1.10",
     "rimraf": "^3.0.2",
     "rxjs": "^6.6.6",
-    "typeorm": "^0.2.32"
+    "swagger-ui-express": "^4.1.6",
+    "typeorm": "0.2.32"
   },
   "devDependencies": {
     "@nestjs/cli": "^7.6.0",
@@ -55,7 +59,7 @@
     "ts-loader": "^8.0.18",
     "ts-node": "^9.1.1",
     "tsconfig-paths": "^3.9.0",
-    "typescript": "^4.2.3"
+    "typescript": "^4.2.4"
   },
   "jest": {
     "moduleFileExtensions": [

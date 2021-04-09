@@ -1,0 +1,19 @@
+{
+  "type": "postgres",
+  "host": "john.db.elephantsql.com",
+  "port": 5432,
+  "username": "fpcpodnk",
+  "password": "YmT9rH87NXgBgz0KR680P7oxGezFRkeZ",
+  "database": "fpcpodnk",
+  "synchronize": false,
+  "entities": [
+    "dist/src/database/entity/*.js"
+  ],
+  "migrations": [
+    "dist/src/database/migration/*.js"
+  ],
+  "cli": {
+    "entitiesDir": "src/database/entity",
+    "migrationsDir": "src/database/migration"
+  }
+}
