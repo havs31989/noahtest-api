@@ -1,21 +1,14 @@
-import { BaseEntity, Column, Entity } from 'typeorm';
-import { EntityId } from 'typeorm/repository/EntityId';
+import { Column, Entity } from 'typeorm';
 import { DataEntity } from '../data.entity';
 
 @Entity()
 export class User extends DataEntity {
-    @Column()
-    email: string;
+  @Column()
+  email: string;
 
-    @Column()
-    name: string;
+  @Column()
+  name: string;
 
-    @Column()
-    dateOfBirth: string;
-
-    @Column()
-    token: string;
-
-    @Column()
-    tokenExp: number;
+  @Column()
+  dateOfBirth: string;
 }

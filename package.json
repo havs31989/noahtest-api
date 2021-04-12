@@ -21,9 +21,9 @@
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "migrate:create": "typeorm migration:create -d src/database/migration -n ",
-    "migrate:generate": "typeorm migration:generate -d src/database/migration -n ",
-    "migrate:run": "typeorm migration:run",
-    "migrate:revert": "typeorm migration:revert"
+    "migrate:generate": "npm run build && typeorm migration:generate -d src/database/migration -n ",
+    "migrate:run": "npm run build && typeorm migration:run",
+    "migrate:revert": "npm run build && typeorm migration:revert"
   },
   "dependencies": {
     "@nestjs/common": "^7.6.15",
@@ -32,6 +32,7 @@
     "@nestjs/platform-express": "^7.6.15",
     "@nestjs/swagger": "^4.8.0",
     "@nestjs/typeorm": "^7.1.5",
+    "firebase-admin": "^9.6.0",
     "pg": "^8.5.1",
     "reflect-metadata": "^0.1.10",
     "rimraf": "^3.0.2",

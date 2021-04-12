@@ -1,19 +1,25 @@
-﻿import { Column, PrimaryGeneratedColumn } from "typeorm";
-import { EntityId } from "typeorm/repository/EntityId";
+﻿import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { EntityId } from 'typeorm/repository/EntityId';
 
-export abstract class DataEntity {
-    @PrimaryGeneratedColumn()
-    id: EntityId;
+export class DataEntity extends BaseEntity {
+  @PrimaryGeneratedColumn()
+  id: EntityId;
 
-    @Column()
-    createdTime: Date;
+  @Column()
+  createdTime: Date;
 
-    @Column()
-    createdBy: string;
+  @Column()
+  createdBy: string;
 
-    @Column()
-    lastUpdatedTime: Date;
+  @Column({ nullable: true })
+  lastUpdatedTime: Date;
 
-    @Column()
-    lastUpdatedBy: string;
+  @Column({ nullable: true })
+  lastUpdatedBy: string;
+
+  constructor() {
+    super();
+    this.createdTime = new Date();
+    this.createdBy = 'system';
+  }
 }
