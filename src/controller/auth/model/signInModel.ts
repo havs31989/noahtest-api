@@ -2,7 +2,7 @@
 
 export class SignInModel {
   @ApiProperty()
-  email: string;
+  email = '';
   @ApiProperty()
-  password: string;
+  password = '';
 }

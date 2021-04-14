@@ -2,11 +2,15 @@
 
 export class UserProfileModel {
   @ApiProperty()
-  email: string;
+  email = '';
   @ApiProperty()
-  name: string;
+  name = '';
   @ApiProperty()
-  dateOfBirth: string;
+  dateOfBirth = '';
   @ApiProperty()
-  token: string;
+  token = '';
+  @ApiProperty()
+  refreshToken = '';
+  @ApiProperty()
+  tokenExp = 0;
 }

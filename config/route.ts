@@ -1,14 +1,16 @@
 export class Route {
-	static api = 'api/';
-	//#region AppController
-	static appController = Route.api + 'app/';
-	static appInfo = Route.appController + 'appInfo';
-	//#region AppController
+    private static api = 'api/';
+    //#region AppController
+    private static appController = Route.api + 'app/';
+    public static appInfo = Route.appController + 'appInfo';
+    //#region AppController
 
-	//#region AuthController
-	static authController = Route.api + 'auth/';
-	static authSignUp = Route.authController + 'signUp';
-	static authSignIn = Route.authController + 'signIn';
-	static verifyToken = Route.authController + 'verifyToken';
-	//#region AuthController
+    //#region AuthController
+    private static authController = Route.api + 'auth/';
+    public static authTest = Route.authController + 'test';
+    public static authSignUp = Route.authController + 'signUp';
+    public static authSignIn = Route.authController + 'signIn';
+    public static authVerifyToken = Route.authController + 'verifyToken';
+    public static authInternalSignIn = Route.authController + 'internalSignIn';
+    //#region AuthController
 }

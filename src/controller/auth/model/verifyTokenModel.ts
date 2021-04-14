@@ -2,7 +2,7 @@
 
 export class VerifyTokenModel {
   @ApiProperty()
-  email: string;
+  email = '';
   @ApiProperty()
-  clientIdToken: string;
+  clientIdToken = '';
 }

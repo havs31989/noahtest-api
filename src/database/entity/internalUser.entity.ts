@@ -12,6 +12,9 @@ export class InternalUser extends DataEntity {
   @Column('int', { array: true })
   roles: number[];
 
+  @Column({ nullable: true })
+  refreshToken: string;
+
   @Column()
   token: string;
 

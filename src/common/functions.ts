@@ -9,14 +9,26 @@
   }
 
   /**
+   * Create generic instance
+   * @param type
+   */
+  public static createInstance<T>(type: { new (): T }): T {
+    return new type();
+  }
+
+  /**
    * Map new instance with source
    * @param source
    */
-  public static map<T>(source: T): any {
-    const data = {};
-    Object.keys(source).map(function (key, index) {
-      data[key] = source[key];
+  public static map<TSource, TDest>(source: TSource, dest: TDest): TDest {
+    Object.keys(dest).map(function (key, index) {
+      try {
+        dest[key] = source[key];
+      } catch (ex) {
+        // log
+        console.log(ex);
+      }
     });
-    return data;
+    return dest;
   }
 }

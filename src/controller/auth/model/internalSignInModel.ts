@@ -1,12 +1,8 @@
 ﻿import { ApiProperty } from '@nestjs/swagger';
 
-export class SignUpModel {
+export class InternalSignInModel {
   @ApiProperty()
   email = '';
   @ApiProperty()
   password = '';
-  @ApiProperty()
-  name = '';
-  @ApiProperty()
-  dateOfBirth = '';
 }
