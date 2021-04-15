@@ -12,7 +12,7 @@ import { EntityId } from 'typeorm/repository/EntityId';
 import { Route } from '../../../config/route';
 import { JWTInternalGuard } from '../../auth/auth.internal.guard';
 import { BlogService } from '../../service/blog/blog.service';
-import { BlogModel } from './model/BlogModel';
+import { BlogModel } from './model/blogModel';
 import { CreateBlogModel } from './model/createBlogModel';
 import { UpdateBlogModel } from './model/updateBlogModel';
 
