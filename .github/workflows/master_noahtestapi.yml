@@ -23,9 +23,9 @@ jobs:
 
     - name: npm install, build, and test
       run: |
-        npm i @nestjs/cli
         npm install
-        npm run build
+        npm run build --if-present
+        npm run test --if-present
 
     - name: Upload artifact for deployment job
       uses: actions/upload-artifact@v2
@@ -52,5 +52,5 @@ jobs:
       with:
         app-name: 'noahtestapi'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_b342b738f8da48e5a5b5631d884d1f6d }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_f581babc762c46d793230e855c05b7c2 }}
         package: .
