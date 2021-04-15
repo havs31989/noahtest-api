@@ -1,12 +1,12 @@
 ﻿import { ApiProperty } from '@nestjs/swagger';
 
-export class SignUpModel {
+export class CreateBlogModel {
   @ApiProperty({ type: String })
-  email = '';
+  title = '';
   @ApiProperty({ type: String })
-  password = '';
+  shortTitle = '';
   @ApiProperty({ type: String })
-  name = '';
+  thumbPicture = '';
   @ApiProperty({ type: String })
-  dateOfBirth = '';
+  text = '';
 }

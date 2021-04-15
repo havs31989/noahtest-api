@@ -3,7 +3,7 @@ import { DataEntity } from '../data.entity';
 
 @Entity()
 export class InternalUser extends DataEntity {
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
@@ -20,4 +20,14 @@ export class InternalUser extends DataEntity {
 
   @Column()
   tokenExp: number;
+
+  constructor() {
+    super();
+    this.email = '';
+    this.password = '';
+    this.roles = [];
+    this.refreshToken = null;
+    this.token = '';
+    this.tokenExp = 0;
+  }
 }

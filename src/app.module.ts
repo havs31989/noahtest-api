@@ -10,21 +10,23 @@ import { JwtModule } from '@nestjs/jwt';
 import { Constants } from './common/constants';
 import { PassportModule } from '@nestjs/passport';
 import { JwtStrategy } from './auth/jwt.strategy';
+import { BlogController } from './controller/blog/blog.controller';
+import { BlogService } from './service/blog/blog.service';
 
 @Module({
-    imports: [
-        ConfigModule.forRoot({
-            load: [configuration],
-        }),
-        TypeOrmModule.forRoot(),
-        PassportModule,
-        JwtModule.register({
-            secret: Constants.jwtSecret,
-            signOptions: { expiresIn: Constants.jwtTokenExpiredIn },
-        }),
-    ],
-    controllers: [AppController, AuthController],
-    providers: [JwtStrategy, AppService, AuthService],
-    exports: [PassportModule, JwtModule],
+  imports: [
+    ConfigModule.forRoot({
+      load: [configuration],
+    }),
+    TypeOrmModule.forRoot(),
+    PassportModule,
+    JwtModule.register({
+      secret: Constants.jwtSecret,
+      signOptions: { expiresIn: Constants.jwtTokenExpiredIn },
+    }),
+  ],
+  controllers: [AppController, AuthController, BlogController],
+  providers: [JwtStrategy, AppService, AuthService, BlogService],
+  exports: [PassportModule, JwtModule],
 })
-export class AppModule { }
+export class AppModule {}

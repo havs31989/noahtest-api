@@ -11,34 +11,34 @@ import { VerifyTokenModel } from './model/verifyTokenModel';
 
 @Controller()
 export class AuthController {
-    constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService) {}
 
-    @Post(Route.authSignIn)
-    public async signIn(@Body() model: SignInModel): Promise<UserProfileModel> {
-        return await this.authService.signIn(model);
-    }
+  @Post(Route.authSignIn)
+  public async signIn(@Body() model: SignInModel): Promise<UserProfileModel> {
+    return await this.authService.signIn(model);
+  }
 
-    @Post(Route.authSignUp)
-    public async signUp(@Body() model: SignUpModel): Promise<UserProfileModel> {
-        return await this.authService.signUp(model);
-    }
+  @Post(Route.authSignUp)
+  public async signUp(@Body() model: SignUpModel): Promise<UserProfileModel> {
+    return await this.authService.signUp(model);
+  }
 
-    @Post(Route.authInternalSignIn)
-    public async internalSignIn(
-        @Body() model: InternalSignInModel,
-    ): Promise<UserProfileModel> {
-        return await this.authService.internalSignIn(model);
-    }
+  @Post(Route.authInternalSignIn)
+  public async internalSignIn(
+    @Body() model: InternalSignInModel,
+  ): Promise<UserProfileModel> {
+    return await this.authService.internalSignIn(model);
+  }
 
-    @Post(Route.authVerifyToken)
-    public async verifyToken(@Body() model: VerifyTokenModel): Promise<boolean> {
-        return await this.authService.verfiyToken(model);
-    }
+  @Post(Route.authVerifyToken)
+  public async verifyToken(@Body() model: VerifyTokenModel): Promise<boolean> {
+    return await this.authService.verfiyToken(model);
+  }
 
-    @UseGuards(JWTInternalGuard)
-    @ApiBearerAuth()
-    @Post(Route.authTest)
-    public testAuth(): boolean {
-        return true;
-    }
+  @UseGuards(JWTInternalGuard)
+  @ApiBearerAuth()
+  @Post(Route.authTest)
+  public testAuth(): boolean {
+    return true;
+  }
 }

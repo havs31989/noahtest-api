@@ -1,7 +1,8 @@
 ﻿import { BaseEntity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import { EntityId } from 'typeorm/repository/EntityId';
 
-export class DataEntity extends BaseEntity {
+/** Abstract entity data */
+export abstract class DataEntity extends BaseEntity {
   @PrimaryGeneratedColumn()
   id: EntityId;
 

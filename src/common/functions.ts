@@ -21,9 +21,11 @@
    * @param source
    */
   public static map<TSource, TDest>(source: TSource, dest: TDest): TDest {
-    Object.keys(dest).map(function (key, index) {
+    Object.keys(dest).map(function (key) {
       try {
-        dest[key] = source[key];
+        if (source[key]) {
+          dest[key] = source[key];
+        }
       } catch (ex) {
         // log
         console.log(ex);

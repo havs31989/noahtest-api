@@ -3,7 +3,7 @@ import { DataEntity } from '../data.entity';
 
 @Entity()
 export class User extends DataEntity {
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
@@ -11,4 +11,11 @@ export class User extends DataEntity {
 
   @Column()
   dateOfBirth: string;
+
+  constructor() {
+    super();
+    this.email = '';
+    this.name = '';
+    this.dateOfBirth = '';
+  }
 }

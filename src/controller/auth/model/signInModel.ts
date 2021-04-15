@@ -1,8 +1,8 @@
 ﻿import { ApiProperty } from '@nestjs/swagger';
 
 export class SignInModel {
-  @ApiProperty()
+  @ApiProperty({ type: String })
   email = '';
-  @ApiProperty()
+  @ApiProperty({ type: String })
   password = '';
 }

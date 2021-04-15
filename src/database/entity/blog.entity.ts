@@ -14,4 +14,11 @@ export class Blog extends DataEntity {
 
   @Column()
   text: string;
+
+  constructor() {
+    super();
+    this.title = '';
+    this.shortTitle = '';
+    this.text = '';
+  }
 }
